@@ -14,7 +14,7 @@ def sudoku_line_ok(line: tuple):
 
 
 def sudoku_check(grid):
-    bad_rows = [row for row in grid if not sudoku_line_ok(tuple(row))]
+    bad_rows = [tuple(row) for row in grid if not sudoku_line_ok(tuple(row))]
     grid = list(zip(*grid))
     bad_cols = [col for col in grid if not sudoku_line_ok(col)]
     squares = []

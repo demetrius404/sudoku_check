@@ -41,6 +41,7 @@ class TestSudokuCheck(unittest.TestCase):
         self.assertEqual(app.sudoku_check(grid_test_case), True)
 
     def test_grid_er_1(self):
+        # bad sum
         grid_test_case = [[5, 3, 4, 6, 7, 8, 9, 1, 2],
                           [6, 7, 2, 1, 9, 5, 3, 4, 8],
                           [1, 9, 8, 3, 4, 2, 5, 6, 7],
@@ -53,6 +54,7 @@ class TestSudokuCheck(unittest.TestCase):
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
     def test_grid_er_2(self):
+        # bad row and col
         grid_test_case = [[1, 2, 3, 4, 5, 6, 7, 8, 9],
                           [1, 2, 3, 4, 5, 6, 7, 8, 9],
                           [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -65,6 +67,7 @@ class TestSudokuCheck(unittest.TestCase):
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
     def test_grid_er_3(self):
+        # bad element = 0
         grid_test_case = [[4, 1, 6, 7, 5, 8, 2, 3, 9],
                           [8, 7, 9, 4, 2, 3, 1, 5, 6],
                           [3, 5, 2, 1, 9, 6, 7, 8, 4],
@@ -77,6 +80,7 @@ class TestSudokuCheck(unittest.TestCase):
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
     def test_grid_er_4(self):
+        # bad element = "i"
         grid_test_case = [[4, 1, 6, 7, 5, 8, 2, 3, 9],
                           [8, 7, 9, 4, 2, 3, 1, 5, 6],
                           [3, 5, 2, 1, 9, 6, 7, 8, 4],
@@ -89,6 +93,7 @@ class TestSudokuCheck(unittest.TestCase):
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
     def test_grid_er_5(self):
+        # bad sum
         grid_test_case = [[5, 3, 4, 6, 7, 8, 9, 1, 2],
                           [6, 7, 2, 1, 9, 5, 3, 4, 8],
                           [1, 9, 8, 3, 4, 2, 5, 1, 7],

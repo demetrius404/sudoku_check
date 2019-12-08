@@ -1,3 +1,6 @@
+SHAPE = 9
+
+
 def sudoku_element_ok(line: tuple):
     valid_elements = (1, 2, 3, 4, 5, 6, 7, 8, 9)
     for element in line:
@@ -7,7 +10,7 @@ def sudoku_element_ok(line: tuple):
 
 
 def sudoku_line_ok(line: tuple):
-    if sudoku_element_ok(line) and len(line) == 9:
+    if sudoku_element_ok(line) and len(line) == SHAPE:
         return sum(line) == sum(set(line))
     else:
         return False
@@ -16,8 +19,8 @@ def sudoku_line_ok(line: tuple):
 def sudoku_square_ok(grid: list):
     squares = []
     grid = list(zip(*grid))
-    for i in range(0, 9, 3):
-        for j in range(0, 9, 3):
+    for i in range(0, SHAPE, 3):
+        for j in range(0, SHAPE, 3):
             parts_square = list([row[j:j+3] for row in grid[i:i+3]])
             square = tuple()
             for part_square in parts_square:
@@ -27,10 +30,10 @@ def sudoku_square_ok(grid: list):
 
 
 def sudoku_shape_ok(grid: list):
-    if not len(grid) == 9:
+    if not len(grid) == SHAPE:
         return False
-    for i in range(0, 9):
-        if not len(grid[i]) == 9:
+    for i in range(0, SHAPE):
+        if not len(grid[i]) == SHAPE:
             return False
     return True
 

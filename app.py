@@ -13,11 +13,9 @@ def sudoku_line_ok(line: tuple):
         return False
 
 
-def sudoku_check(grid: list):
-    bad_rows = [tuple(row) for row in grid if not sudoku_line_ok(tuple(row))]
-    grid = list(zip(*grid))
-    bad_cols = [col for col in grid if not sudoku_line_ok(col)]
+def sudoku_square_ok(grid: list):
     squares = []
+    grid = list(zip(*grid))
     for i in range(0, 9, 3):
         for j in range(0, 9, 3):
             parts_square = list([row[j:j+3] for row in grid[i:i+3]])
@@ -25,7 +23,27 @@ def sudoku_check(grid: list):
             for part_square in parts_square:
                 square += part_square
             squares.append(square)
-    bad_squares = [square for square in squares if not sudoku_line_ok(square)]
+    return [square for square in squares if not sudoku_line_ok(square)]
+
+
+def sudoku_shape_ok(grid: list):
+    if not len(grid) == 9:
+        return False
+    for i in range(0, 9):
+        if not len(grid[i]) == 9:
+            return False
+    return True
+
+
+def sudoku_check(grid: list):
+
+    if not sudoku_shape_ok(grid):
+        return False
+
+    bad_rows = [tuple(row) for row in grid if not sudoku_line_ok(tuple(row))]
+    bad_cols = [col for col in list(zip(*grid)) if not sudoku_line_ok(col)]
+    bad_squares = sudoku_square_ok(grid)
+
     return not (bad_rows or bad_cols or bad_squares)
 
 

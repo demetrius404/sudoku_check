@@ -100,6 +100,31 @@ class TestSudokuCheck(unittest.TestCase):
                           [3, 4, 5, 2, 8, 6, 1, 7, 9]]
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
+    def test_grid_er_6(self):
+        # bad shape
+        grid_test_case = [[7, 4, 6, 9, 3, 2, 1, 5],
+                          [8, 9, 1, 6, 4, 5, 3, 7, 2],
+                          [2, 3, 5, 8, 1, 7, 4, 6, 9],
+                          [3, 6, 9, 5, 2, 4, 7, 8, 1],
+                          [4, 7, 2, 1, 8, 9, 5, 3, 6],
+                          [5, 1, 8, 7, 6, 3, 2, 9, 4],
+                          [1, 5, 7, 2, 9, 6, 8, 4, 3],
+                          [9, 2, 3, 4, 7, 8, 6, 1, 5],
+                          [6, 8, 4, 3, 5, 1, 9, 2, 7]]
+        self.assertEqual(app.sudoku_check(grid_test_case), False)
+
+    def test_grid_er_7(self):
+        # bad shape
+        grid_test_case = [[7, 4, 6, 9, 3, 2, 1, 5, 8],
+                          [8, 9, 1, 6, 4, 5, 3, 7, 2],
+                          [2, 3, 5, 8, 1, 7, 4, 6, 9],
+                          [3, 6, 9, 5, 2, 4, 7, 8, 1],
+                          [4, 7, 2, 1, 8, 9, 5, 3, 6],
+                          [5, 1, 8, 7, 6, 3, 2, 9, 4],
+                          [1, 5, 7, 2, 9, 6, 8, 4, 3],
+                          [9, 2, 3, 4, 7, 8, 6, 1, 5]]
+        self.assertEqual(app.sudoku_check(grid_test_case), False)
+
     def test_line_ok_1(self):
         grid_test_line = tuple([4, 1, 6, 7, 5, 8, 2, 3, 9])
         self.assertEqual(app.sudoku_line_ok(grid_test_line), True)

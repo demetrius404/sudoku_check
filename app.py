@@ -13,7 +13,7 @@ def sudoku_line_ok(line: tuple):
         return False
 
 
-def sudoku_check(grid):
+def sudoku_check(grid: list):
     bad_rows = [tuple(row) for row in grid if not sudoku_line_ok(tuple(row))]
     grid = list(zip(*grid))
     bad_cols = [col for col in grid if not sudoku_line_ok(col)]

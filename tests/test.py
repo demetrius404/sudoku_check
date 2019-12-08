@@ -1,6 +1,10 @@
 import unittest
 import app
 
+# add PATH to app.py file
+# import sys
+# sys.path.append("../")
+
 
 class TestSudokuCheck(unittest.TestCase):
 

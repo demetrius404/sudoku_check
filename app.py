@@ -1,16 +1,18 @@
-SHAPE = 9
+SHAPE_GRID = 9
+SHAPE_SQUARE = 3
+VALID_ELEMENTS = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+# classic sudoku grid 9x9, square 3x3
 
 
 def sudoku_element_ok(line: tuple):
-    valid_elements = (1, 2, 3, 4, 5, 6, 7, 8, 9)
     for element in line:
-        if element not in valid_elements:
+        if element not in VALID_ELEMENTS:
             return False
     return True
 
 
 def sudoku_line_ok(line: tuple):
-    if sudoku_element_ok(line) and len(line) == SHAPE:
+    if sudoku_element_ok(line) and len(line) == SHAPE_GRID:
         return sum(line) == sum(set(line))
     else:
         return False
@@ -19,9 +21,9 @@ def sudoku_line_ok(line: tuple):
 def sudoku_square_ok(grid: list):
     squares = []
     grid = list(zip(*grid))
-    for i in range(0, SHAPE, 3):
-        for j in range(0, SHAPE, 3):
-            parts_square = list([row[j:j+3] for row in grid[i:i+3]])
+    for i in range(0, SHAPE_GRID, SHAPE_SQUARE):
+        for j in range(0, SHAPE_GRID, SHAPE_SQUARE):
+            parts_square = list([row[j:j+SHAPE_SQUARE] for row in grid[i:i+SHAPE_SQUARE]])
             square = tuple()
             for part_square in parts_square:
                 square += part_square
@@ -30,10 +32,10 @@ def sudoku_square_ok(grid: list):
 
 
 def sudoku_shape_ok(grid: list):
-    if not len(grid) == SHAPE:
+    if not len(grid) == SHAPE_GRID:
         return False
-    for i in range(0, SHAPE):
-        if not len(grid[i]) == SHAPE:
+    for i in range(0, SHAPE_GRID):
+        if not len(grid[i]) == SHAPE_GRID:
             return False
     return True
 

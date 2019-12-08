@@ -44,6 +44,20 @@ class TestSudokuCheck(unittest.TestCase):
                           [6, 8, 4, 3, 5, 1, 9, 2, 7]]
         self.assertEqual(app.sudoku_check(grid_test_case), True)
 
+    def test_grid_ok_4(self):
+        # non standard sudoku grid 4x4, square 2x2
+        grid_test_case = [[7, 4, 6, 9],
+                          [8, 9, 1, 3],
+                          [2, 1, 3, 8],
+                          [3, 6, 9, 5]]
+        # set new shape
+        app.SHAPE_GRID = 4
+        app.SHAPE_SQUARE = 2
+        self.assertEqual(app.sudoku_check(grid_test_case), True)
+        # return old shape
+        app.SHAPE_GRID = 9
+        app.SHAPE_SQUARE = 3
+
     def test_grid_er_1(self):
         # bad sum
         grid_test_case = [[5, 3, 4, 6, 7, 8, 9, 1, 2],

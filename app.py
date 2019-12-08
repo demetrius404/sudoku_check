@@ -39,14 +39,11 @@ def sudoku_shape_ok(grid: list):
 
 
 def sudoku_check(grid: list):
-
     if not sudoku_shape_ok(grid):
         return False
-
     bad_rows = [tuple(row) for row in grid if not sudoku_line_ok(tuple(row))]
     bad_cols = [col for col in list(zip(*grid)) if not sudoku_line_ok(col)]
     bad_squares = sudoku_square_ok(grid)
-
     return not (bad_rows or bad_cols or bad_squares)
 
 

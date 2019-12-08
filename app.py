@@ -1,12 +1,12 @@
-def sudoku_element_ok(line):
-    valid_elements = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def sudoku_element_ok(line: tuple):
+    valid_elements = (1, 2, 3, 4, 5, 6, 7, 8, 9)
     for element in line:
         if element not in valid_elements:
             return False
     return True
 
 
-def sudoku_line_ok(line):
+def sudoku_line_ok(line: tuple):
     if sudoku_element_ok(line) and len(line) == 9:
         return sum(line) == sum(set(line))
     else:
@@ -14,7 +14,7 @@ def sudoku_line_ok(line):
 
 
 def sudoku_check(grid):
-    bad_rows = [row for row in grid if not sudoku_line_ok(row)]
+    bad_rows = [row for row in grid if not sudoku_line_ok(tuple(row))]
     grid = list(zip(*grid))
     bad_cols = [col for col in grid if not sudoku_line_ok(col)]
     squares = []

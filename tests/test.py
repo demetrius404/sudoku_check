@@ -151,6 +151,10 @@ class TestSudokuCheck(unittest.TestCase):
         grid_test_line = tuple([4, 1, 6, 7, 5, 8, 2, 3, 9])
         self.assertEqual(app.sudoku_line_ok(grid_test_line), True)
 
+    def test_line_ok_2(self):
+        grid_test_line = tuple([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        self.assertEqual(app.sudoku_line_ok(grid_test_line), True)
+
     def test_line_er_1(self):
         grid_test_line = tuple([4, 0, 6, 7, 5, 8, 2, 3, 9])
         self.assertEqual(app.sudoku_line_ok(grid_test_line), False)

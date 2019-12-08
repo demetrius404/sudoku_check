@@ -1,7 +1,7 @@
 import unittest
 import app
 
-# add PATH to app.py file
+# on import module error add env PATH for app.py file
 # import sys
 # sys.path.append("../")
 

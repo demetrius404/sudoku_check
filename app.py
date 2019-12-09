@@ -62,9 +62,8 @@ def read_from_file(file_name: str):
     grid = []
     if os.path.exists(file_name) and os.path.isfile(file_name):
         with open(file_name, "r", encoding="utf-8") as fs:
-            lines = fs.readlines()
-    for line in lines:
-        grid.append([int(element) for element in line.split(",") if str(element).strip().isdigit()])
+            for line in fs.readlines():
+                grid.append([int(element) for element in line.split(",") if str(element).strip().isdigit()])
     return grid
 
 

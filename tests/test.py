@@ -193,6 +193,10 @@ class TestSudokuCheck(unittest.TestCase):
         grid_test_case = app.read_from_file("./test_case_file_er_1.txt")
         self.assertEqual(app.sudoku_check(grid_test_case), False)
 
+    def test_read_from_file_er_2(self):
+        grid_test_case = app.read_from_file("./bad_path.txt")
+        self.assertEqual(app.sudoku_check(grid_test_case), False)
+
 
 if __name__ == "__main__":
     unittest.main()

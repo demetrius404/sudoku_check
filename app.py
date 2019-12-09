@@ -1,3 +1,6 @@
+import os
+import sys
+
 SHAPE_GRID = 9
 SHAPE_SQUARE = 3
 VALID_ELEMENTS = (1, 2, 3, 4, 5, 6, 7, 8, 9)
@@ -55,6 +58,16 @@ def sudoku_check(grid: list):
     return not (bad_rows or bad_cols or bad_squares)
 
 
+def read_from_file(file_name: str):
+    grid = []
+    if os.path.exists(file_name) and os.path.isfile(file_name):
+        with open(file_name, "r", encoding="utf-8") as fs:
+            lines = fs.readlines()
+    for line in lines:
+        grid.append([int(element) for element in line.split(",") if str(element).strip().isdigit()])
+    return grid
+
+
 if __name__ == "__main__":
 
     GRID = [[4, 1, 6, 7, 5, 8, 2, 3, 9],
@@ -69,3 +82,6 @@ if __name__ == "__main__":
 
     print("sudoku valid:", sudoku_check(GRID))
 
+    if len(sys.argv) == 2:
+        print("load from file:", sys.argv[1])
+        print("sudoku valid:", sudoku_check(read_from_file(sys.argv[1])))

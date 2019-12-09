@@ -185,6 +185,14 @@ class TestSudokuCheck(unittest.TestCase):
         grid_test_line = tuple([4, 0, 6, 7, 5, 9, 2, 3, 9, 4])
         self.assertEqual(app.sudoku_line_ok(grid_test_line), False)
 
+    def test_read_from_file_ok_1(self):
+        grid_test_case = app.read_from_file("./test_case_file_ok_1.txt")
+        self.assertEqual(app.sudoku_check(grid_test_case), True)
+
+    def test_read_from_file_er_1(self):
+        grid_test_case = app.read_from_file("./test_case_file_er_1.txt")
+        self.assertEqual(app.sudoku_check(grid_test_case), False)
+
 
 if __name__ == "__main__":
     unittest.main()

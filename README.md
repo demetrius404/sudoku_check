@@ -14,3 +14,8 @@ GRID = [[4, 1, 6, 7, 5, 8, 2, 3, 9],
 ```text
 sudoku valid: True
 ```
+
+load grid from file
+```shell script
+python app.py ./tests/test_case_file_ok_1.txt
+```

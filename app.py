@@ -3,20 +3,22 @@ SHAPE_SQUARE = 3
 VALID_ELEMENTS = (1, 2, 3, 4, 5, 6, 7, 8, 9)
 # classic sudoku grid 9x9, square 3x3
 
+# deprecated
+# def sudoku_element_ok(line: tuple):
+#     for element in line:
+#         if element not in VALID_ELEMENTS:
+#             return False
+#     return True
 
-def sudoku_element_ok(line: tuple):
-    for element in line:
-        if element not in VALID_ELEMENTS:
-            return False
-    return True
 
 # more beautiful ver of sudoku_element_ok
 def sudoku_element_ok_v2(line: tuple):
     line_el = tuple([el for el in line if el in VALID_ELEMENTS])
     return len(line_el) == len(line) 
 
+
 def sudoku_line_ok(line: tuple):
-    if sudoku_element_ok(line) and len(line) == SHAPE_GRID:
+    if sudoku_element_ok_v2(line) and len(line) == SHAPE_GRID:
         return sum(line) == sum(set(line))
     else:
         return False

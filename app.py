@@ -80,8 +80,9 @@ if __name__ == "__main__":
             [5, 6, 1, 9, 8, 2, 4, 7, 3],
             [7, 9, 4, 6, 3, 1, 8, 2, 5]]
 
+    print("sudoku from memory")
     print("sudoku valid:", sudoku_check(GRID))
 
     if len(sys.argv) == 2:
-        print("load from file:", sys.argv[1])
+        print("sudoku from file:", sys.argv[1])
         print("sudoku valid:", sudoku_check(read_from_file(sys.argv[1])))

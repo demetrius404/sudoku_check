@@ -10,6 +10,10 @@ def sudoku_element_ok(line: tuple):
             return False
     return True
 
+# more beautiful ver of sudoku_element_ok
+def sudoku_element_ok_v2(line: tuple):
+    line_el = tuple([el for el in line if el in VALID_ELEMENTS])
+    return len(line_el) == len(line) 
 
 def sudoku_line_ok(line: tuple):
     if sudoku_element_ok(line) and len(line) == SHAPE_GRID:
